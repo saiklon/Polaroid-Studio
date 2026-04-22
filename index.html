@@ -339,6 +339,7 @@
                 border-right: none;
                 border-bottom: 1px solid var(--border);
                 height: auto;
+                order: 1;
             }
 
             .sidebar-content {
@@ -349,6 +350,7 @@
             .workspace {
                 padding: 40px 20px 80px;
                 min-height: 60vh;
+                order: -1;
             }
 
             .floating-info {
@@ -702,7 +704,7 @@
                     
                     const url = URL.createObjectURL(blob);
                     const link = document.createElement("a");
-                    link.download = `polaroid-${Date.now()}.png`;
+                    link.download = `polaroid-${Date.now()}.jpg`;
                     link.href = url;
                     
                     // Append to body to ensure it works in all browsers
@@ -714,7 +716,7 @@
                         document.body.removeChild(link);
                         URL.revokeObjectURL(url);
                     }, 100);
-                }, "image/png", 1.0);
+                }, "image/jpeg", 0.85);
             } catch (e) {
                 $('#loader').hide();
                 console.error("Export failed:", e);
